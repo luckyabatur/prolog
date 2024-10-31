@@ -24,7 +24,7 @@ sublist(L, R) :- append(_, T, R), append(L, _, T).
 insert(X, I, L, R) :- append(T, B, L), length(T, I), append(T, [X], K), append(K, B, R).
 
 insert1(X, 0, L, [X|L]).
-insert1(X, I, [_|T], R) :-  I >= 1, I1 is I - 1, insert1(X, I1, T, R).
+insert1(X, I, [H|T], [H|R]) :-  I >= 1, I1 is I - 1, insert1(X, I1, T, R).
 
 
 negative(L, I) :- append(T, [X|_], L), X < 0, length(T, I).
